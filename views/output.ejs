@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Steganography</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #2196F3, #64B5F6);
+    }
+
+    #container {
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(to right, #FFFFFF, #E0E0E0);
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      background: linear-gradient(to right, #007bff, #0056b3);
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background: linear-gradient(to right, #0056b3, #003c80);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Hidden message</h1>
+    <div>
+      <p>Message: <span id="message" style="font-size: 28px;"><%=message%></span></p>
+    </div>
+    <a href="/" id="back-link">Back</a>
+  </div>
+</body>
+</html>
