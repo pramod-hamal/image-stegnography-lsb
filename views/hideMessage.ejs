@@ -70,19 +70,58 @@
       a:hover {
         color: #0056b3;
       }
+      .card.image-preview {
+        height: 350px;
+        width: 350px;
+      }
+
+      .card.image-preview img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
     </style>
   </head>
   <body>
     <div class="card">
-      <h1>Hide Message</h1>
-      <form action="/hide-message" method="POST" enctype="multipart/form-data">
-        <!-- accept only png file -->
-        <input type="file" name="image" accept="image/png" />
-        <input type="text" name="message" placeholder="Message" />
-        <input type="text" name="secretKey" placeholder="Secret Key" />
-        <input type="submit" value="Hide" />
-      </form>
-      <a href="/">Back</a>
+      <div>
+        <h1>Hide Message</h1>
+        <form
+          action="/hide-message"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <!-- accept only png file -->
+          <input
+            type="file"
+            name="image"
+            accept="image/png"
+            onchange="previewImage(event)"
+          />
+          <input type="text" name="message" placeholder="Message" />
+          <input type="text" name="secretKey" placeholder="Secret Key" />
+          <input type="submit" value="Hide" />
+        </form>
+        <a href="/">Back</a>
+      </div>
     </div>
+
+    <div class="card image-preview" >
+      <img id="preview" src="" alt="Image Preview" />
+    </div>
+
+    <script>
+      function previewImage(event) {
+        var input = event.target;
+        var image = document.getElementById("preview");
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            image.src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
   </body>
 </html>
